@@ -30,6 +30,17 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 | [Python Built-in][pyn] | `python -m SimpleHTTPServer 8080` |
 | [PHP Built-in][php] | `php -S localhost:8080` |
 
+# Credits
+- [Liberated Pixel Cup][lpc]
+    - art assets
+- Nelson James Gatlin
+    - torvald.ogg
+- Johnathan Roatch
+    - metal-switch.ogg
+    - vocal-percussion-8.ogg
+    - metal-bowl.ogg
+    - metal-bowl-with-water.ogg
+
 [ifp]: https://www.meetup.com/IFProgrammers/ "Idaho Falls Programmers"
 [gch]: https://www.google.com/chrome/ "Google Chrome"
 [ffx]: https://www.mozilla.org/en-US/firefox/ "Mozilla Firefox"
@@ -37,3 +48,4 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 [php]: https://www.php.net/manual/en/features.commandline.webserver.php "PHP Built-in Web Server"
 [pyn]: https://docs.python.org/2/library/simplehttpserver.html "Python Simple HTTP Server"
 [cdy]: https://caddyserver.com/tutorial "Caddy Web Server"
+[lpc]: http://lpc.opengameart.org/static/lpc-style-guide/ "Liberated Pixel Art"
