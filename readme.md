@@ -2,7 +2,7 @@
 
 Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user group.
 
-![Idaho Falls Programmers](http://i.critrussell.net/assets/efLGNJdbJK.png)
+![Idaho Falls Programmers][ifp-logo]
 
 ## Intention
 
@@ -10,10 +10,13 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 - Avoid requiring an installed game development system (Unity, Unreal, etc).
 - Target a cross OS platform for easy distribution/showcasing (modern web browsers).
 
+![Game Example][example]
+
 ## Repo Structure
 
 - Each branch is a snapshot at a feature delivery of this example game.
-- Start with master and then move to each snapshot in order: `master` → `0001/mute-the-music` → `0002/asset-manager`
+- Start with master and then move to each snapshot in order: `master` → `0001/asset-manager` → `0002/asset-manager`
+    - _Note:_ at the live version we are going to program all this together without checking out these branches.
 
 ## Requirements
 
@@ -40,6 +43,8 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
     - vocal-percussion-8.ogg
     - metal-bowl.ogg
     - metal-bowl-with-water.ogg
+- Photonstorm
+    - plasmaball.png
 
 [ifp]: https://www.meetup.com/IFProgrammers/ "Idaho Falls Programmers"
 [gch]: https://www.google.com/chrome/ "Google Chrome"
@@ -49,3 +54,6 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 [pyn]: https://docs.python.org/2/library/simplehttpserver.html "Python Simple HTTP Server"
 [cdy]: https://caddyserver.com/tutorial "Caddy Web Server"
 [lpc]: http://lpc.opengameart.org/static/lpc-style-guide/ "Liberated Pixel Art"
+
+[ifp-logo]: http://i.critrussell.net/assets/efLGNJdbJK.png "IFP Logo"
+[example]: http://i.critrussell.net/ewJvfwfW.png "Screenshot"
