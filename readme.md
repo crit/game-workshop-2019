@@ -15,7 +15,7 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 ## Repo Structure
 
 - Each branch is a snapshot at a feature delivery of this example game.
-- Start with master and then move to each snapshot in order: `master` → `0001/asset-manager` → `0002/asset-manager`
+- Start with master and then move to each snapshot in order: `master` → `0001/asset-manager` → `0002/entity-type`
     - _Note:_ at the live version we are going to program all this together without checking out these branches.
 
 ## Requirements
