@@ -1,6 +1,6 @@
 class Game {
   constructor(config) {
-    this.showHitboxes = config.showHitboxes || false
+    this.showHitboxes = false
 
     const element = config.stage
     this.width = element.width
