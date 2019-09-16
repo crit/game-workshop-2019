@@ -9,6 +9,9 @@ class Game {
     this.height = element.height
     this.stage = element.getContext('2d')
 
+    this.player = Characters.Player(32, 32) // Add These Line
+    this.entities.push(this.player)
+
     assets.download(() => this.loop())
   }
 
@@ -26,7 +29,7 @@ class Game {
     const updates = []
 
     this.entities.forEach(entity => {
-      if (entity.has(['active', 'render'])) updates.push(entity.com('renderer'))
+      if (entity.has(['active', 'renderer'])) updates.push(entity.com('renderer'))
     })
 
     if (!updates.length) return
