@@ -34,4 +34,12 @@ class Components {
       h: h
     }
   }
+
+  static velocity(vx = 0, vy = 0) {
+    return {
+      name: 'velocity',
+      vx: vx,
+      vy: vy
+    }
+  }
 }

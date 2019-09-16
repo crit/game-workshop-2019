@@ -6,7 +6,7 @@ class Characters {
     entity.set(Components.position(x, y))
     entity.set(Components.size(64, 64))
     entity.set(Components.type('character'))
-    // todo: add velocity
+    entity.set(Components.velocity(0, 0))
     // todo: add health
 
     entity.set(Components.renderer(context => {

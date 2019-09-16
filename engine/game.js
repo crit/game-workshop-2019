@@ -12,12 +12,15 @@ class Game {
     this.player = Characters.Player(32, 32) // Add These Line
     this.entities.push(this.player)
 
+    this.input = new Input(this.player, this)
+
     assets.download(() => this.loop())
   }
 
   loop() {
     this.entities.forEach((entity, i) => {
       // todo: movement, animation, etc
+      if (entity.has(['active', 'position', 'velocity'])) this.move(entity)
     })
 
     this.render()
@@ -36,5 +39,14 @@ class Game {
 
     this.stage.clearRect(0, 0, this.width, this.height)
     updates.forEach(update => update.run(this.stage))
+  }
+
+  move(entity) {
+    if (!entity.com('velocity').vx && !entity.com('velocity').vy) return // not moving
+
+    // todo: collision detection with interactions
+
+    entity.com('position').x += entity.com('velocity').vx
+    entity.com('position').y += entity.com('velocity').vy
   }
 }
