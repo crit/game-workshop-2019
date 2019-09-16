@@ -9,15 +9,18 @@ class Game {
     this.height = element.height
     this.stage = element.getContext('2d')
 
-    this.player = Characters.Player(32, 32) // Add These Line
-    this.entities.push(this.player)
-
+    this.player = Characters.Player(32, 32)
     this.input = new Input(this.player, this)
+
+    this.selectLevel = config.level
+    this.levels = new Levels(this)
 
     assets.download(() => this.loop())
   }
 
   loop() {
+    this.changeLevel()
+
     this.entities.forEach((entity, i) => {
       // todo: movement, animation, etc
       if (entity.has(['active', 'position', 'velocity'])) this.move(entity)
@@ -48,5 +51,11 @@ class Game {
 
     entity.com('position').x += entity.com('velocity').vx
     entity.com('position').y += entity.com('velocity').vy
+  }
+
+  changeLevel() {
+    if (!this.selectLevel) return
+    this.entities = this.levels.select(this.selectLevel, this)
+    this.selectLevel = undefined
   }
 }
