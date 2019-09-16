@@ -48,7 +48,13 @@ class Maps {
       tiles: tilesets.square1
     })
 
-    // todo: boundaries
+    // walls
+    entities.push(
+      Maps.wall(0, 0, 512, 5), // top
+      Maps.wall(0, 0, 15, 512), // left
+      Maps.wall(0, 490, 512, 15), // bottom
+      Maps.wall(497, 0, 15, 512), // right
+    )
 
     return entities
   }
@@ -62,8 +68,35 @@ class Maps {
       tiles: tilesets.why1
     })
 
-    // todo: boundaries
+    // walls
+    entities.push(
+      Maps.wall(0, 0, 512, 5), // top
+      Maps.wall(0, 0, 15, 512), // left
+      Maps.wall(0, 497, 512, 15), // bottom
+      Maps.wall(497, 0, 15, 512), // right
+
+      // Lower Left water
+      Maps.wall(0, 268, 110, 224),
+
+      // upper middle water
+      Maps.wall(118, 0, 278, 160),
+      Maps.wall(160, 160, 128, 29),
+
+      // lower right water
+      Maps.wall(403, 332, 96, 148),
+    )
 
     return entities
+  }
+
+  static wall(x = 0, y = 0, w = 0, h = 0) {
+    const entity = new Entity()
+    const box = {x: x, y: y, w: w, h: h}
+
+    entity.set(Components.active())
+    entity.set(Components.type('wall'))
+    entity.set(Components.hitbox(() => box))
+
+    return entity
   }
 }
