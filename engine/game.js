@@ -23,6 +23,7 @@ class Game {
 
     this.entities.forEach((entity, i) => {
       // todo: movement, animation, etc
+      if (entity.has(['active', 'animation'])) this.animate(entity)
       if (entity.has(['active', 'velocity', 'position', 'collision', 'hitbox'])) this.move(entity)
     })
 
@@ -89,5 +90,23 @@ class Game {
       const hitbox = entity.com('hitbox').run()
       this.stage.strokeRect(hitbox.x, hitbox.y, hitbox.w, hitbox.h)
     })
+  }
+
+  animate(entity) {
+    const animation = entity.com('animation')
+
+    animation.tick += 0.1
+
+    if (animation.tick * 100 >= animation.delay) {
+      animation.frame++
+      animation.tick = 0
+    }
+
+    if (animation.frame >= animation.frames.length) {
+      if (!animation.next) return
+      if (typeof animation.next === 'function') return animation.next()
+      if (animation.next.name === 'repeat') animation.frame = 0
+      if (animation.next.name === 'animation') entity.set(animation.next)
+    }
   }
 }

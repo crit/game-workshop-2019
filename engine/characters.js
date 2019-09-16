@@ -13,7 +13,8 @@ class Characters {
       const pos = entity.com('position')
       const size = entity.com('size')
       const image = assets.get(imgPath)
-      const frame = {x: 0, y: 64 * 2}
+      const animation = entity.com('animation')
+      const frame = animation.frames[animation.frame]
 
       context.drawImage(image, frame.x, frame.y, size.w, size.h, pos.x, pos.y, size.w, size.h)
     }))
@@ -43,8 +44,23 @@ class Characters {
     const entity = Characters.entity(x, y, 'assets/player.png')
 
     entity.set(Components.type('player'))
-    // todo: Add walk down animation
+    entity.set(Characters.walk('down'))
 
     return entity
+  }
+
+  static walk(dir) {
+    switch (dir) {
+      case 'up':
+        return Components.animation(8, [1, 8], 70, 64, Components.repeat())
+      case 'down':
+        return Components.animation(10, [1, 8], 70, 64, Components.repeat())
+      case 'left':
+        return Components.animation(9, [1, 8], 70, 64, Components.repeat())
+      case 'right':
+        return Components.animation(11, [1, 8], 70, 64, Components.repeat())
+    }
+
+    throw `Characters.walk unknown direction: ${dir}`
   }
 }

@@ -56,4 +56,31 @@ class Components {
       run: callback
     }
   }
+
+  static animation(row = 1, range = [0, 0], delay = 70, size = 64, next) {
+    if (!next) next = () => {}
+
+    const component = {
+      name: 'animation',
+      tick: 0,
+      frame: 0,
+      frames: [],
+      delay: delay,
+      next: next
+    }
+
+    const animationRow = row * size
+
+    for (let i = range[0]; i < range[1]; i++) {
+      component.frames.push({x: i * size, y: animationRow})
+    }
+
+    return component
+  }
+
+  static repeat() {
+    return {
+      name: 'repeat'
+    }
+  }
 }
