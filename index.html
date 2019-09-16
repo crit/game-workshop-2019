@@ -1,70 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Game Workshop 2019</title>
-    <style>
-        body {
-            background-color: #0A6B9B;
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        .game-canvas {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-top: -256px;
-            margin-left: -256px;
-        }
-        .dev-control {
-            width: 330px;
-            float: right;
-            border: 1px solid #263238;
-            background-color: #CFD8DC;
-            padding: 10px;
-            text-align: center;
-            font-family: sans-serif;
-            font-size: large;
-        }
-        .dev-control h1 {
-            margin: -10px -10px 10px -10px;
-            font-size: x-large;
-            font-weight: bold;
-            background-color: #263238;
-            color: #CFD8DC;
-        }
-        .dev-control button {
-            width: 80%;
-            height: 32px;
-            font-size: medium;
-            color: #263238;
-            border: 1px solid #263238;
-            background-color: #90A4AE;
-            outline: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Game Workshop 2019</title>
+  <style>
+    body {
+      background-color: #0A6B9B;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .game-canvas {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -256px;
+      margin-left: -256px;
+    }
+    .dev-control {
+      width: 330px;
+      float: right;
+      border: 1px solid #263238;
+      background-color: #CFD8DC;
+      padding: 10px;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: large;
+    }
+    .dev-control h1 {
+      margin: -10px -10px 10px -10px;
+      font-size: x-large;
+      font-weight: bold;
+      background-color: #263238;
+      color: #CFD8DC;
+    }
+    .dev-control button {
+      width: 80%;
+      height: 32px;
+      font-size: medium;
+      color: #263238;
+      border: 1px solid #263238;
+      background-color: #90A4AE;
+      outline: none;
+    }
+  </style>
 </head>
 <body>
 <!-- Audio Library -->
 <audio id="audio-music" preload="auto" loop="loop">
-    <source src="assets/torvald.ogg" type="audio/ogg"/>
+  <source src="assets/torvald.ogg" type="audio/ogg"/>
 </audio>
 <audio id="audio-shoot" preload="auto">
-    <source src="assets/metal-switch.ogg" type="audio/ogg"/>
+  <source src="assets/metal-switch.ogg" type="audio/ogg"/>
 </audio>
 <audio id="audio-death" preload="auto">
-    <source src="assets/vocal-percussion-8.ogg" type="audio/ogg"/>
+  <source src="assets/vocal-percussion-8.ogg" type="audio/ogg"/>
 </audio>
 <audio id="audio-hit" preload="auto">
-    <source src="assets/metal-bowl.ogg" type="audio/ogg"/>
+  <source src="assets/metal-bowl.ogg" type="audio/ogg"/>
 </audio>
 <audio id="audio-injury" preload="auto">
-    <source src="assets/metal-bowl-with-water.ogg" type="audio/ogg"/>
+  <source src="assets/metal-bowl-with-water.ogg" type="audio/ogg"/>
 </audio>
 
 <!-- Stage -->
@@ -72,11 +72,11 @@
 
 <!-- Dev Controls -->
 <div class="dev-control">
-    <h1>Dev Controls</h1>
-    <div><button id="dev.music">Toggle Music</button></div>
-    <div><button id="dev.hitboxes">Toggle Hit Box Outlines</button></div>
-    <div><button id="dev.square1">Load SquareIsland1 Level</button></div>
-    <div><button id="dev.why1">Load WhyIsland1 Level</button></div>
+  <h1>Dev Controls</h1>
+  <div><button id="dev.music">Toggle Music</button></div>
+  <div><button id="dev.hitboxes">Toggle Hit Box Outlines</button></div>
+  <div><button id="dev.square1">Load SquareIsland1 Level</button></div>
+  <div><button id="dev.why1">Load WhyIsland1 Level</button></div>
 </div>
 
 <!-- Game Engine: Dependencies -->
@@ -91,14 +91,14 @@
 
 <!-- Run The Game -->
 <script>
-    const game = new Game({
-      stage: document.getElementById('stage'),
-      music: document.getElementById('audio-music'),
-      cast: document.getElementById('audio-shoot'),
-      death: document.getElementById('audio-death'),
-      hit: document.getElementById('audio-hit'),
-      level: localStorage.getItem('current-level') || 'square1'
-    })
+  const game = new Game({
+    stage: document.getElementById('stage'),
+    music: document.getElementById('audio-music'),
+    cast: document.getElementById('audio-shoot'),
+    death: document.getElementById('audio-death'),
+    hit: document.getElementById('audio-hit'),
+    level: localStorage.getItem('current-level') || 'square1'
+  })
 </script>
 
 <!-- Hook Up Dev Controls -->
