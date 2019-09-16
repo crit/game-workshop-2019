@@ -81,6 +81,7 @@
 
 <!-- Game Engine: Dependencies -->
 <script src="assets/tilesets.js"></script>
+<script src="engine/assets.js"></script>
 
 <!-- Game Engine: ECS -->
 <script src="engine/game.js"></script>
@@ -91,6 +92,14 @@
 
 <!-- Run The Game -->
 <script>
+  const assets = new Assets() // Add These Lines
+  assets.add([
+    'assets/player.png',
+    'assets/sandwater.png',
+    'assets/skeleton.png',
+    'assets/plasmaball.png',
+  ])
+
   const game = new Game({
     stage: document.getElementById('stage'),
     music: document.getElementById('audio-music'),
