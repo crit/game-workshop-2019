@@ -2,6 +2,8 @@ class Game {
   constructor(config) {
     this.showHitboxes = false
 
+    this.entities = []
+
     const element = config.stage
     this.width = element.width
     this.height = element.height
