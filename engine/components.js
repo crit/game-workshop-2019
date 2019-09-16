@@ -49,4 +49,11 @@ class Components {
       run: callback
     }
   }
+
+  static collision(callback) {
+    return {
+      name: 'collision',
+      run: callback
+    }
+  }
 }

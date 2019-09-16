@@ -19,6 +19,20 @@ class Levels {
   static SquareIsland1(game) {
     const entities = Maps.SquareIsland()
 
+    // temporary wall
+    const wall = new Entity()
+    wall.set(Components.active())
+    wall.set(Components.type('wall'))
+    wall.set(Components.hitbox(() => {
+      return {
+        x: game.width / 2 - 32,
+        y: game.height / 2 - 32,
+        w: 64,
+        h: 64
+      }
+    }))
+    entities.push(wall)
+
     // todo: add enemies to the level
 
     game.player.com('position').x = 32

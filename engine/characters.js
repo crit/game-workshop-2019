@@ -27,7 +27,13 @@ class Characters {
       }
     }))
 
-    // todo: add collision
+    entity.set(Components.collision(target => {
+      if (target.is('wall')) return true // collided
+      if (target.is('enemy')) return true // collided
+
+      return false
+    }))
+
     // todo: add death handler
 
     return entity

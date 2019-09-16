@@ -23,7 +23,7 @@ class Game {
 
     this.entities.forEach((entity, i) => {
       // todo: movement, animation, etc
-      if (entity.has(['active', 'position', 'velocity'])) this.move(entity)
+      if (entity.has(['active', 'velocity', 'position', 'collision', 'hitbox'])) this.move(entity)
     })
 
     this.render()
@@ -48,7 +48,28 @@ class Game {
   move(entity) {
     if (!entity.com('velocity').vx && !entity.com('velocity').vy) return // not moving
 
-    // todo: collision detection with interactions
+    const hitbox = entity.com('hitbox').run()
+    const future = {
+      x: hitbox.x,
+      y: hitbox.y,
+      w: hitbox.w,
+      h: hitbox.h
+    }
+
+    // get where the entity would be if we applied the current velocity values
+    future.x += entity.com('velocity').vx
+    future.y += entity.com('velocity').vy
+
+    for (let i = 0; i < this.entities.length; i++) {
+      const target = this.entities[i]
+      if (target.id === entity.id) continue
+      if (target.missing(['hitbox', 'active'])) continue
+      if (!collides(future, target.com('hitbox').run())) continue
+
+      const stop = entity.com('collision').run(target) // interactions
+
+      if (stop) return // collision told us not to move the entity
+    }
 
     entity.com('position').x += entity.com('velocity').vx
     entity.com('position').y += entity.com('velocity').vy
