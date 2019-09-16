@@ -26,7 +26,7 @@ class Game {
     const updates = []
 
     this.entities.forEach(entity => {
-      if (entity.has(['active', 'render'])) updates.push(entity.com('renderer'))
+      if (entity.has(['active', 'renderer'])) updates.push(entity.com('renderer'))
     })
 
     if (!updates.length) return
