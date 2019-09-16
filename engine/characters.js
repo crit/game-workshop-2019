@@ -18,7 +18,15 @@ class Characters {
       context.drawImage(image, frame.x, frame.y, size.w, size.h, pos.x, pos.y, size.w, size.h)
     }))
 
-    // todo: add hitbox
+    entity.set(Components.hitbox(() => {
+      return {
+        x: entity.com('position').x + 15,
+        y: entity.com('position').y + 15,
+        w: entity.com('size').w - 30,
+        h: entity.com('size').h - 15
+      }
+    }))
+
     // todo: add collision
     // todo: add death handler
 

@@ -42,4 +42,11 @@ class Components {
       vy: vy
     }
   }
+
+  static hitbox(callback) {
+    return {
+      name: 'hitbox',
+      run: callback
+    }
+  }
 }

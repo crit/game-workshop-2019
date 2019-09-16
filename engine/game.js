@@ -28,6 +28,7 @@ class Game {
 
     this.render()
 
+    if (this.showHitboxes) this.drawHitboxes()
     window.requestAnimationFrame(() => this.loop())
   }
 
@@ -57,5 +58,15 @@ class Game {
     if (!this.selectLevel) return
     this.entities = this.levels.select(this.selectLevel, this)
     this.selectLevel = undefined
+  }
+
+  drawHitboxes() {
+    this.stage.strokeStyle = '#f44336'
+    this.entities.forEach(entity => {
+      if (entity.missing(['hitbox', 'active'])) return
+
+      const hitbox = entity.com('hitbox').run()
+      this.stage.strokeRect(hitbox.x, hitbox.y, hitbox.w, hitbox.h)
+    })
   }
 }
