@@ -13,7 +13,7 @@ class Characters {
       const pos = entity.com('position')
       const size = entity.com('size')
       const image = assets.get(imgPath)
-      const frame = {x: 0, y: 0}
+      const frame = {x: 0, y: 64 * 2}
 
       context.drawImage(image, frame.x, frame.y, size.w, size.h, pos.x, pos.y, size.w, size.h)
     }))
