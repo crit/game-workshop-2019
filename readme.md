@@ -33,6 +33,11 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 | [Python Built-in][pyn] | `python -m SimpleHTTPServer 8080` |
 | [PHP Built-in][php] | `php -S localhost:8080` |
 
+## Post Event
+
+If you can't make it that night, or want to come back to this later, we will be following
+[this post][blog] step by step.
+
 # Credits
 - [Liberated Pixel Cup][lpc]
     - art assets
@@ -57,3 +62,4 @@ Welcome to the Game Workshop (2019) for the [Idaho Falls Programmers][ifp] user 
 
 [ifp-logo]: http://i.critrussell.net/assets/efLGNJdbJK.png "IFP Logo"
 [example]: http://i.critrussell.net/ewJvfwfW.png "Screenshot"
+[blog]: http://critrussell.com/posts/game-workshop-2019/ "Blog Post"
