@@ -90,4 +90,11 @@ class Components {
       value: value
     }
   }
+
+  static health(value) {
+    return {
+      name: 'health',
+      value: value
+    }
+  }
 }

@@ -7,7 +7,7 @@ class Characters {
     entity.set(Components.size(64, 64))
     entity.set(Components.type('character'))
     entity.set(Components.velocity(0, 0))
-    // todo: add health
+    entity.set(Components.health(100))
 
     entity.set(Components.renderer(context => {
       const pos = entity.com('position')
@@ -17,6 +17,12 @@ class Characters {
       const frame = animation.frames[animation.frame]
 
       context.drawImage(image, frame.x, frame.y, size.w, size.h, pos.x, pos.y, size.w, size.h)
+
+      context.strokeStyle = 'darkred'
+      context.fillStyle = 'red'
+      const width = (entity.com('health').value / 100) * 30
+      context.strokeRect(pos.x + 16, pos.y, 32, 5)
+      context.fillRect(pos.x + 17, pos.y + 1, width, 4)
     }))
 
     entity.set(Components.hitbox(() => {
