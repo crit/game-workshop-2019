@@ -46,7 +46,7 @@ class Input {
     up.press = () => {
       this.entity.com('velocity').vx = 0
       this.entity.com('velocity').vy = -3
-      // todo: set walk up animation
+      this.entity.set(Characters.walk('up'))
     }
 
     up.release = () => {
@@ -57,7 +57,7 @@ class Input {
     down.press = () => {
       this.entity.com('velocity').vx = 0
       this.entity.com('velocity').vy = 3
-      // todo: set walk down animation
+      this.entity.set(Characters.walk('down'))
     }
 
     down.release = () => {
@@ -68,7 +68,7 @@ class Input {
     left.press = () => {
       this.entity.com('velocity').vx = -3;
       this.entity.com('velocity').vy = 0;
-      // todo: set walk left animation
+      this.entity.set(Characters.walk('left'))
     }
 
     left.release = () => {
@@ -79,7 +79,7 @@ class Input {
     right.press = () => {
       this.entity.com('velocity').vx = 3;
       this.entity.com('velocity').vy = 0;
-      // todo: set walk right animation
+      this.entity.set(Characters.walk('right'))
     }
 
     right.release = () => {
