@@ -23,7 +23,7 @@ class Levels {
 
     game.player.com('position').x = 32
     game.player.com('position').y = 32
-    // todo: reset player animations
+    game.player.set(Characters.walk('down'))
 
     entities.push(game.player)
 
@@ -37,7 +37,7 @@ class Levels {
 
     game.player.com('position').x = 13 * 32
     game.player.com('position').y = 32
-    // todo: reset player animations
+    game.player.set(Characters.walk('down'))
 
     entities.push(game.player)
 
