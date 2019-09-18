@@ -63,4 +63,65 @@ class Characters {
 
     throw `Characters.walk unknown direction: ${dir}`
   }
+
+  static Skeleton(dir, x, y) {
+    const entity = Characters.entity(x, y, 'assets/skeleton.png')
+
+    entity.set(Components.type('enemy'))
+    entity.set(Components.direction(dir))
+
+    // set initial movement direction and animation
+    switch (dir) {
+      case 'left':
+        entity.set(Components.velocity(-1, 0))
+        entity.set(Characters.walk('left'))
+        break
+      case 'right':
+        entity.set(Components.velocity(1, 0))
+        entity.set(Characters.walk('right'))
+        break
+      case 'up':
+        entity.set(Components.velocity(0, -1))
+        entity.set(Characters.walk('up'))
+        break
+      case 'down':
+        entity.set(Components.velocity(0, 1))
+        entity.set(Characters.walk('down'))
+        break
+    }
+
+    entity.set(Components.collision(target => {
+      const redirect = target.is('wall') || target.is('enemy') || target.is('player')
+
+      if (!redirect) return false // no collision
+
+      // change direction and animation
+      switch (entity.com('direction').value) {
+        case 'left':
+          entity.set(Components.direction('right'))
+          entity.set(Components.velocity(1, 0))
+          entity.set(Characters.walk('right'))
+          break
+        case 'right':
+          entity.set(Components.direction('left'))
+          entity.set(Components.velocity(-1, 0))
+          entity.set(Characters.walk('left'))
+          break
+        case 'up':
+          entity.set(Components.direction('down'))
+          entity.set(Components.velocity(0, 1))
+          entity.set(Characters.walk('down'))
+          break
+        case 'down':
+          entity.set(Components.direction('up'))
+          entity.set(Components.velocity(0, -1))
+          entity.set(Characters.walk('up'))
+          break
+      }
+
+      return true // collided
+    }))
+
+    return entity
+  }
 }

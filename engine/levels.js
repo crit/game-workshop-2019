@@ -19,7 +19,10 @@ class Levels {
   static SquareIsland1(game) {
     const entities = Maps.SquareIsland()
 
-    // todo: add enemies to the level
+    entities.push(
+      Characters.Skeleton('down', 256, 32),
+      Characters.Skeleton('left', 32, 256)
+    )
 
     game.player.com('position').x = 32
     game.player.com('position').y = 32
@@ -33,7 +36,11 @@ class Levels {
   static WhyIsland1(game) {
     const entities = Maps.WhyIsland()
 
-    // todo: add enemies to the level
+    entities.push(
+      Characters.Skeleton('down', 32, 32),
+      Characters.Skeleton('down', 160, 224),
+      Characters.Skeleton('left', 128, 400),
+    )
 
     game.player.com('position').x = 13 * 32
     game.player.com('position').y = 32

@@ -83,4 +83,11 @@ class Components {
       name: 'repeat'
     }
   }
+
+  static direction(value) {
+    return {
+      name: 'direction',
+      value: value
+    }
+  }
 }
